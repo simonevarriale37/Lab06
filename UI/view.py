@@ -63,7 +63,9 @@ class View:
         pulsante_conferma_responsabile = ft.ElevatedButton("Conferma", on_click=self.controller.conferma_responsabile)
 
         # Altri Pulsanti da implementare (es. "Mostra" e "Cerca")
-        # TODO
+        # Creo i pulsanti per mostrare l'elenco di auto e per cercare un modello
+        pulsante_mostra_auto = ft.ElevatedButton("Mostra", on_click=self.controller.mostra_automobili)
+        pulsante_cerca_auto = ft.ElevatedButton("Cerca", on_click=self.controller.cerca_automobili)
 
         # --- LAYOUT ---
         self.page.add(
@@ -82,10 +84,21 @@ class View:
             ft.Divider(),
 
             # Sezione 3
-            # TODO
+            # Aggiungo il layout del pulsante per mostrare l'elenco di auto
+            ft.Text("Automobili", size=20),
+            pulsante_mostra_auto,
+            self.lista_auto,
+            ft.Divider(),
+
 
             # Sezione 4
-            # TODO
+            # Aggiungo il layout del pulsante per cercare un modello di auto
+            ft.Text("Cerca Automobili", size=20),
+            ft.Row(spacing=20,
+                   alignment=ft.MainAxisAlignment.START,
+                   controls=[self.input_modello_auto, pulsante_cerca_auto]
+        ),
+        self.lista_auto_ricerca
         )
 
     def cambia_tema(self, e):

@@ -1,5 +1,5 @@
 import flet as ft
-
+import mysql.connector
 from model.model import Autonoleggio
 from UI.view import View
 from UI.controller import Controller
